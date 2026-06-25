@@ -3,6 +3,7 @@ const App = () => {
     <>
       <h1>Hello World</h1>
       <p>This is my portfolio!  </p>
+      <p>Hello this is new line</p>
     </>
   )
 }

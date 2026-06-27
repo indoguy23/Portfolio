@@ -1,5 +1,9 @@
-@use '../styles/variables' as *;
-@use '../styles/mixins' as *;
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+/* ==========================
+   Navbar
+========================== */
 
 .navbar {
     position: fixed;
@@ -8,147 +12,222 @@
     width: 100%;
     z-index: 999;
 
-    background: rgba(5, 8, 22, 0.65);
-    backdrop-filter: blur(18px);
+    background: rgba(5, 8, 22, 0.55);
+    backdrop-filter: blur(15px);
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-    .navbar__container {
-        max-width: 1300px;
-        margin: 0 auto;
+    transition: all 0.35s ease;
+}
 
-        padding: 20px 40px;
+/* ==========================
+   Scroll Effect
+========================== */
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.navbar--scrolled {
+    padding: 4px 0;
+    background: rgba(5, 8, 22, 0.92);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
 
-    .navbar__logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: white;
+/* ==========================
+   Container
+========================== */
 
-        span {
-            color: $primary;
-        }
-    }
+.navbar__container {
+    max-width: 1200px;
+    height: 80px;
 
-    .navbar__links {
-        display: flex;
-        gap: 40px;
+    margin: 0 auto;
+    padding: 0 32px;
 
-        li {
-            list-style: none;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        a {
-            position: relative;
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
+/* ==========================
+   Logo
+========================== */
 
-            transition: 0.3s;
+.navbar__logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
 
-            &:hover {
-                color: $primary;
-            }
+    flex-shrink: 0;
 
-            &::after {
-                content: "";
-
-                position: absolute;
-                left: 0;
-                bottom: -6px;
-
-                width: 0%;
-                height: 2px;
-
-                background: $primary;
-
-                transition: 0.3s;
-            }
-
-            &:hover::after {
-                width: 100%;
-            }
-        }
-    }
-
-    .navbar__button {
-        padding: 12px 24px;
-
-        border-radius: 10px;
-
-        border: none;
-
-        background: $primary;
-
-        color: white;
-
-        cursor: pointer;
-
-        font-weight: 600;
-
-        transition: .3s;
-
-        &:hover {
-            transform: translateY(-3px);
-
-            box-shadow: 0 0 20px rgba(123, 97, 255, .5);
-        }
+    span {
+        color: $primary;
     }
 }
 
-/* Hide hamburger on desktop */
-.navbar__toggle {
-    display: none;
+/* ==========================
+   Navigation
+========================== */
 
-    background: transparent;
-    border: none;
+.navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar__item {
+    list-style: none;
+}
+
+.navbar__link {
+    position: relative;
+
+    text-decoration: none;
 
     color: white;
 
-    font-size: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+}
+
+/* Hover */
+
+.navbar__link:hover {
+    color: $primary;
+}
+
+/* Underline */
+
+.navbar__link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0%;
+    height: 2px;
+
+    background: $primary;
+
+    transition: width 0.3s ease;
+}
+
+.navbar__link:hover::after {
+    width: 100%;
+}
+
+/* Active Link */
+
+.navbar__link.active {
+    color: $primary;
+}
+
+.navbar__link.active::after {
+    width: 100%;
+}
+
+/* ==========================
+   Resume Button
+========================== */
+
+.navbar__button {
+    border: none;
+    outline: none;
 
     cursor: pointer;
+
+    padding: 12px 28px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,
+            $primary,
+            #9b7bff);
+
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
+.navbar__button:hover {
+    transform: translateY(-3px);
 
+    box-shadow: 0 12px 25px rgba(123, 97, 255, 0.4);
+}
+
+/* ==========================
+   Mobile Toggle
+========================== */
+
+.navbar__toggle {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 2rem;
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 992px) {
     .navbar__menu {
-        gap: 25px;
+        gap: 22px;
     }
 
+    .navbar__button {
+        padding: 10px 20px;
+    }
 }
 
-/* Mobile */
+/* ==========================
+   Mobile
+========================== */
 
 @media (max-width: 768px) {
-
     .navbar__toggle {
         display: block;
     }
 
     .navbar__nav {
-
         position: fixed;
 
         top: 0;
         right: -100%;
 
-        width: 280px;
+        width: 300px;
         height: 100vh;
 
-        background: #08111f;
+        background: rgba(8, 17, 31, 0.98);
+
+        backdrop-filter: blur(25px);
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        transition: .4s;
+        gap: 45px;
+
+        transition: right 0.4s ease;
     }
 
     .navbar__nav.active {
@@ -156,14 +235,13 @@
     }
 
     .navbar__menu {
-
+        display: flex;
         flex-direction: column;
 
-        align-items: center;
-
         gap: 35px;
-
-        margin-bottom: 40px;
     }
 
+    .navbar__button {
+        width: 180px;
+    }
 }

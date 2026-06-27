@@ -1,0 +1,47 @@
+@use "../../styles/variables" as *;
+
+.skills {
+    padding: 120px 0;
+}
+
+.skills__container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+.skills__header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.skills__subtitle {
+    display: inline-block;
+
+    color: $primary;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.skills__title {
+    font-size: 3rem;
+    color: white;
+
+    margin-bottom: 20px;
+}
+
+.skills__description {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #bdbdbd;
+
+    line-height: 1.8;
+}

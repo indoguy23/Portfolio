@@ -1,0 +1,39 @@
+@use "../../styles/variables" as *;
+
+.stat-card {
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .05);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    text-align: center;
+
+    transition: .3s;
+}
+
+.stat-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: rgba(123, 97, 255, .3);
+
+    box-shadow: 0 15px 35px rgba(123, 97, 255, .18);
+}
+
+.stat-card h3 {
+
+    color: $primary;
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+}
+
+.stat-card span {
+
+    color: #c8c8c8;
+}

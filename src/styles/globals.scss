@@ -6,3 +6,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+section{
+    min-height:100vh;
+    padding:120px 8%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050816;
+
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}

@@ -17,13 +17,13 @@ export const navLinks: NavItem[] = [
   },
   {
     id: 3,
-    title: "Projects",
-    href: "#projects",
+    title: "Skills",
+    href: "#skills",
   },
   {
     id: 4,
-    title: "Skills",
-    href: "#skills",
+    title: "Projects",
+    href: "#projects",
   },
   {
     id: 5,

@@ -1,0 +1,116 @@
+@use "../../styles/variables" as *;
+
+.profile-card {
+    width: 430px;
+    padding: 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(18px);
+
+    border-radius: 28px;
+
+    transition: all 0.4s ease;
+
+    overflow: hidden;
+}
+
+.profile-card:hover {
+    transform: translateY(-12px);
+}
+
+/* Soft Glow */
+
+.profile-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    top: -150px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(circle,
+            rgba(123, 97, 255, 0.35),
+            transparent 70%);
+
+    filter: blur(30px);
+
+    z-index: 0;
+    animation: glow 6s ease-in-out infinite;
+}
+
+/* Image */
+
+.profile-card__image img {
+    position: relative;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 32px;
+
+    overflow: hidden;
+
+    border: 5px solid rgba(123, 97, 255, 0.9);
+
+    box-shadow:
+        0 0 40px rgba(123, 97, 255, 0.35),
+        0 0 80px rgba(123, 97, 255, 0.15);
+
+    margin-bottom: 35px;
+
+    z-index: 2;
+    transition: transform .4s ease;
+}
+
+.profile-card__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.profile-card:hover .profile-card__image img {
+    transform: scale(1.08);
+}
+
+/* Name */
+
+.profile-card h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+
+    background: linear-gradient(90deg,
+            white,
+            #bfa8ff);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes glow {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: .35;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.15);
+        opacity: .7;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: .35;
+    }
+}

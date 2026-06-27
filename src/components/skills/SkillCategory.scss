@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+
+.skill-category {
+    margin-bottom: 70px;
+}
+
+.skill-category__title {
+    position: relative;
+
+    color: white;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    margin-bottom: 35px;
+
+    padding-bottom: 12px;
+}
+
+.skill-category__title::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 70px;
+    height: 4px;
+
+    border-radius: 20px;
+
+    background: $primary;
+}
+
+.skill-category__grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 25px;
+}

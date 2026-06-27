@@ -1,0 +1,120 @@
+@use "../../styles/variables" as *;
+
+.experience-card {
+    position: relative;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, .05);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: all .35s ease;
+
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background: linear-gradient(180deg,
+            $primary,
+            #9b7bff);
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(123, 97, 255, .35);
+
+    box-shadow: 0 20px 45px rgba(123, 97, 255, .18);
+}
+
+/* ========================= */
+
+.experience-card__top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.experience-card__year {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 40px;
+
+    background: rgba(123, 97, 255, .15);
+
+    color: $primary;
+
+    font-weight: 600;
+}
+
+.experience-card__icon {
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 14px;
+
+    background: rgba(123, 97, 255, .12);
+
+    color: $primary;
+
+    font-size: 1.5rem;
+}
+
+.experience-card h3 {
+
+    color: white;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 10px;
+}
+
+.experience-card h4 {
+
+    color: #d6d6d6;
+
+    font-size: 1rem;
+
+    margin-bottom: 18px;
+
+    font-weight: 500;
+}
+
+.experience-card p {
+
+    color: #a8a8a8;
+
+    line-height: 1.8;
+}
